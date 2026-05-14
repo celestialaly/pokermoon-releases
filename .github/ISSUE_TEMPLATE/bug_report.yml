@@ -1,0 +1,89 @@
+name: Bug Report
+description: Report a crash, unexpected behavior or display issue.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening an issue, check the [existing issues](https://github.com/celestialaly/pokermoon-releases/issues) to avoid duplicates.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen instead?
+      placeholder: "Example: The dashboard chart stays blank after importing 500 tournaments."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps that lead to the bug.
+      placeholder: |
+        1. Open Poker Moon
+        2. Go to Dashboard
+        3. Click "Synchroniser"
+        4. …
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Poker Moon version
+      description: Visible in the footer of the app (bottom of every page).
+      placeholder: "e.g. 0.1.2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Windows (x86_64)
+        - Linux (x86_64)
+        - macOS (Intel / x86_64)
+        - macOS (Apple Silicon / aarch64)
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag and drop screenshots or screen recordings here if relevant.
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        To capture logs, run Poker Moon from a terminal instead of double-clicking the binary:
+
+        **Windows (PowerShell)**
+        ```powershell
+        .\poker-moon.exe 2>&1 | Tee-Object -FilePath poker-moon.log
+        ```
+
+        **macOS / Linux**
+        ```bash
+        ./poker-moon 2>&1 | tee poker-moon.log
+        ```
+
+        Reproduce the bug, then paste the content of `poker-moon.log` below.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Anything else that might help (OS version, antivirus, hand history file count, etc.).
+    validations:
+      required: false
